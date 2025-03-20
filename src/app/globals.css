@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --accent: #7c3aed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark theme is the default for NovelForge */
+:root {
+  --background: #1a1a1a;
+  --foreground: #e0e0e0;
+  --accent: #7c3aed;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --accent: #7c3aed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NovelForge specific styles */
+.accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+/* Layout styles */
+.novelforge-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left-sidebar {
+  width: 25%;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+}
+
+.central-editor {
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.right-tools {
+  width: 15%;
+  height: 100%;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .novelforge-container {
+    flex-direction: column;
+  }
+  
+  .left-sidebar, .central-editor, .right-tools {
+    width: 100%;
+    height: auto;
+  }
+}
